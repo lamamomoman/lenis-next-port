@@ -25,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={impr.className + ' antialiased'} >
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
