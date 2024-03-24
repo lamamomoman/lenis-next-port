@@ -59,8 +59,6 @@ export const WordSplit = ({ children, className = '' }) => {
             </div>
         })
     )
-
-
 };
 
 export default WordSplit;

@@ -29,7 +29,7 @@ const HomePage = () => {
 
     return <section ref={homeRef} id="home-page" className="relative top-0 overflow-hidden h-screen w-screen border-[20px] border-white bg-black rounded-[60px] p-[7em] flex flex-col justify-center">
         <div id="home-page-bg" className="absolute w-screen h-full left-0 top-0 z-0">
-            <Image priority alt='none' src="/homeBG.jpg" height={10} width={10} className="w-full h-full" />
+            <Image priority alt='none' src="/aboutBG.jpg" height={10} width={10} className="w-full h-full" />
         </div>
         <div className="w-full" id="home-heading">
             <AnimatedElement staggerEl="#letter-cover" config={{
@@ -53,7 +53,7 @@ const HomePage = () => {
 
         </div>
         <div id="home-content" className="relative w-full flex justify-center z-2">
-            <p className="text-white text-xl text-center w-1/2 flex items-center mt-16">Seasoned software developer crafting innovative digital solutions, from web pages to complex applications, embracing the journey of code magic.</p>
+            <p className="text-white text-xl text-center w-1/2 flex items-center mt-16">Seasoned software developer crafting innovative digital solutions, from web pages to complex applications, all while embracing the journey of code magic.</p>
         </div>
     </section>
 

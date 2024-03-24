@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Imprima } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -10,6 +11,7 @@ const impr = Imprima({
   weight: "400",
   subsets: ['latin'],
 })
+const rale = Raleway({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={impr.className + ' antialiased'} >
+      <body className={rale.className + ' antialiased'} >
         {children}
         <SpeedInsights />
       </body>

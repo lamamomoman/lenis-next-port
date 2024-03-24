@@ -7,7 +7,8 @@ import { AnimatedElement } from './Components/Utilities';
 
 import HomePage from './Pages/HomePage';
 import IntroPage from './Pages/IntroPage'
-import ProjectsPage from './Pages/ProjectsPage';
+import Manifesto from './Pages/Manifesto';
+import About from './Pages/About';
 
 export default function Home() {
 
@@ -28,9 +29,10 @@ export default function Home() {
           }}>
             <HomePage />
           </AnimatedElement>
-          <div className='relative h-auto w-screen box-border rounded-t-[50px] px-[2em] pt-[6em] bg-black'>
+          <div className='relative h-auto w-screen box-border rounded-t-[50px] px-[2em] pt-[6em] bg-white'>
             <IntroPage />
-            <ProjectsPage />
+            <Manifesto />
+            <About />
           </div>
         </main>
       </LenisScroller>
