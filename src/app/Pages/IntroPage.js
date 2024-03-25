@@ -3,6 +3,7 @@ import WordSplit, { AnimatedElement } from "../Components/Utilities";
 import { useBodyRef } from "../Components/BodyRefContext";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 const IntroPage = () => {
 
@@ -42,31 +43,31 @@ const IntroPage = () => {
                         </WordSplit>
                     </AnimatedElement>
                 </div>
-                <div id="intro-top-content" className="flex-auto h-full w-auto">
+                <div id="intro-top-content" className="flex-auto h-full w-auto max-[500px]:hidden">
                     <p className="text-black text-xl w-1/2">
                         Meet Karthik, the visionary software craftsman, weaving innovation into every line of code, fueled by boundless creativity and an insatiable thirst for growth.</p>
                 </div>
             </div>
             <div id="intro-bottom" className="flex-1 py-[2em]">
-                <div id="intro-bottom-start" className="h-min flex items-center justify-center flex-row">
-                    <div id="intro-bottom-image" className="h-1/2 w-1/2 flex-[1] relative rounded-3xl overflow-hidden">
+                <div id="intro-bottom-start" className="h-auto flex items-start justify-center flex-row">
+                    <div id="intro-bottom-image" className="h-full w-3/4 flex-[1] relative rounded-3xl overflow-hidden max-[500px]:absolute">
                         <AnimatedElement config={{
                             from: {
-                                scale: 2,
+                                scale: 3,
                             },
                             to: {
                                 scale: 1,
                             },
                             scrollTrigger: {
                                 scrub: 0.2,
-                                start: 'top top',
-                                end: 'bottom center'
+                                start: 'top center',
+                                end: 'bottom top'
                             }
                         }}>
-                            <img className="relative flex-auto" src="https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=3376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="NA" />
+                            <img priority src='/me.JPG' className="relative flex-auto w-full h-full" />
                         </AnimatedElement>
                     </div>
-                    <div id="intro-bottom-heading" className="w-full h-full flex flex-1 justify-end">
+                    <div id="intro-bottom-heading" className="relative w-full ml-[2em] max-[500px]:ml-[0] h-full flex flex-1 justify-end">
                         <AnimatedElement staggerEl="#letter-cover" config={{
                             to: {
                                 transform: 'translate(100%, 0%)',
