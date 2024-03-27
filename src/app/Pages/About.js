@@ -102,8 +102,8 @@ const AboutCard = ({ id, index, heading, content, src }) => {
             endTrigger: bodyRef.current.querySelector('#test-page'),
             start: `center ${50 + (index * 2)}%`,
             end: 'top bottom',
-            pinType: 'transform',
-            anticipatePin: 1,
+            pinType: 'fixed',
+            anticipatePin: 2,
             pinSpacing: false,
         })
     }, [id]);
