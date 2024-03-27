@@ -15,7 +15,6 @@ const About = () => {
             endTrigger: bodyRef.current.querySelector('#test-page'),
             start: 'top top',
             end: 'top bottom',
-            anticipatePin: 1,
             pinSpacing: false,
             scrub: 10,
         });
@@ -23,10 +22,9 @@ const About = () => {
         st.create({
             trigger: bodyRef.current.querySelector('#about-page #curly-heading'),
             pin: true,
-            endTrigger: bodyRef.current.querySelector('#test-page'),
+            endTrigger: bodyRef.current.querySelector('#about-page'),
             start: 'top top',
-            end: 'top bottom',
-            anticipatePin: 1,
+            end: 'bottom center',
             pinSpacing: false,
             scrub: 10,
         });
@@ -35,7 +33,7 @@ const About = () => {
     const aboutData = [
         {
             title: "Innovate & Craft",
-            src: 'https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?q=80&w=3411&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            src: 'https://images.unsplash.com/photo-1667377052103-3d282994acf3?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
             content: "Venturing into innovation, I craft novel solutions that captivate audiences. With innovative thinking, I shape ideas into tangible experiences that inspire. Each creation aims to leave an indelible mark, driving user-centric design evolution.",
         },
         {
@@ -56,11 +54,13 @@ const About = () => {
 
     ]
 
-    return <section id='about-page' className="relative h-full w-full box-border">
-        <div id="curly-heading" className="relative flex-1 ">
-            <h1 className="text-[10vw] text-black text-center">Work Flow</h1>
-        </div>
-        <div id="curly" className="top-0 absolute h-screen w-full flex flex-col left-0">
+
+    return <section id='about-page' className="relative h-full w-full my-20 box-border inline-flex max-[500px]:flex-col">
+        <div id="curly-heading" className="h-screen flex mr-10 py-10 flex-col justify-center flex-1 max-[500px]:w-full">
+            <h1 className="text-xl text-slate-700 font-bold text-left">Work Flow</h1>
+            <p className="text-3xl text-left mt-5">Innovating solutions, perfecting user experiences, and delivering high-quality software with precision and agility.</p>
+        </div> 
+        {/* <div id="curly" className="top-0 absolute h-screen w-full flex flex-col left-0">
             <div id="curly-content" className="relative flex-2 flex flex-row w-full h-full items-center">
                 <h1 className="relative opacity-5 flex-1 text-[40vw] text-center leading-none">&#123;</h1>
                 <AnimatedElement config={{
@@ -78,10 +78,10 @@ const About = () => {
                 </AnimatedElement>
                 <h1 className="relative flex-1 opacity-5 text-[40vw] text-center leading-none">&#125;</h1>
             </div>
-        </div>
-        <div id="about-cards-wrapper">
+        </div> */}
+        <div id="about-cards-wrapper" className="w-full box-border flex-1 flex flex-col max-[500px]:w-full">
             {aboutData.map((el, index) => {
-                return <div key={index} id="about-cards" className="relative h-auto w-full px-[22em] max-[500px]:px-0">
+                return <div key={index} id="about-cards" className="my-10 relative h-auto max-[500px]:px-0">
                     <AboutCard content={el.content} heading={el.title} index={index} id={'page' + index} src={el.src} />
                 </div>
             })}
@@ -95,15 +95,22 @@ const AboutCard = ({ id, index, heading, content, src }) => {
     const st = useScrollTriggger();
 
     useEffect(() => {
+
+        const isMobileLayout = () => {
+            return window.matchMedia('(max-width: 500px)').matches;
+          }
+
+        console.log('mobile layout ', isMobileLayout());
+
+        const startPos = bodyRef.current.querySelector('#curly-heading').offsetHeight;
+
         st.create({
             trigger: bodyRef.current.querySelector(`#about-page #${id}`),
             pin: true,
-            startTrigger: bodyRef.current.querySelector('#about-page'),
-            endTrigger: bodyRef.current.querySelector('#test-page'),
-            start: `center ${50 + (index * 2)}%`,
-            end: 'top bottom',
-            pinType: 'fixed',
-            anticipatePin: 2,
+            endTrigger: bodyRef.current.querySelector('#about-page'),
+            start: !isMobileLayout() ?`center ${50 + index*5}%` : `top ${startPos+(index * 15)}`,
+            anticipatePin: 1 ,
+            end: 'bottom center',
             pinSpacing: false,
         })
     }, [id]);
@@ -117,22 +124,23 @@ const AboutCard = ({ id, index, heading, content, src }) => {
             start: 'center center',
             end: 'bottom bottom',
         }
-    }} id={id} className="h-[40vh] max-[500px]:h-[60vh] overflow-hidden backdrop-blur-sm bg-white/80 rounded-3xl box-border shadow-2xl mb-20">
+    }} id={id} className="h-[40vh] overflow-hidden backdrop-blur-sm bg-white/80 rounded-3xl box-border shadow-2xl">
         <div id="about-content" className="flex h-full flex-row max-[500px]:flex-col overflow-hidden">
             <div id="about-content-image" className="flex-1 flex shadow-[10px_0_20px_1px] shadow-black/30 items-center justify-center overflow-hidden">
                 <img className="h-full max-[500px]:h-auto max-[500px]:w-full max-w-[100vw]" src={src} />
             </div>
-            <div id="about-content-left" className="flex-[2] max-[500px]:flex-1 flex-col flex items-start p-10 justify-center">
-                <AnimatedElement className="mb-10" staggerEl="span" config={{
+            <div id="about-content-left" className="flex-[2] flex-col flex items-start p-10 max-[500px]:p-5 justify-center">
+                <AnimatedElement className="mb-5" staggerEl="span" config={{
                     to: {
                         transform: 'translate(0%, 0%)',
                         opacity: 1,
-                        stagger: 0.08,
+                        stagger: 0.05,
                     },
                     scrollTrigger: {
-                        scrub: 1,
-                        start: 'top center',
-                        end: 'bottom 40%',
+                        scrub: 3,
+                        fastScrollEnd: true,
+                        start: 'top 80%',
+                        end: '+=100px',
                     }
                 }}>
                     <WordSplit>
