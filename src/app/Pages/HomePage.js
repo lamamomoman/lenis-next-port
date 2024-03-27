@@ -28,8 +28,8 @@ const HomePage = () => {
     }, []);
 
     return <section ref={homeRef} id="home-page" className="relative top-0 overflow-hidden h-screen w-screen border-[20px] max-[500px]:border-[10px] border-white bg-black rounded-[60px] max-[500px]:rounded-[30px] p-[7em] max-[500px]:p-[1em] flex flex-col justify-center">
-        <div id="home-page-bg" className="absolute w-screen h-full left-0 top-0 z-0">
-            <Image priority alt='none' src="/aboutBG.jpg" height={1} width={1} className="h-full" />
+        <div id="home-page-bg" className="absolute w-screen h-full left-0 top-0 z-0 flex justify-center items-center">
+            <Image priority alt='none' src="/aboutBG.jpg" height={1} width={1} className="w-full"/>
         </div>
         <div className="w-full" id="home-heading">
             <AnimatedElement staggerEl="#letter-cover" config={{

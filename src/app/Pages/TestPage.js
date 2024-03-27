@@ -1,8 +1,8 @@
 import WordSplit, { AnimatedElement } from "../Components/Utilities";
 
-const Manifesto = () => {
-    return <section id="manifesto-page" className="h-screen items-center max-[500px]:items-end flex justify-end">
-        <div id="manifesto-content" className="relative w-[60%] max-[500px]:w-full py-[2em] z-2">
+const TestPage = () => {
+    return <section id="test-page" className="h-screen items-center border-2 border-red-500 max-[500px]:items-center flex justify-center">
+        <div id="test-content" className="relative w-[60%] max-[500px]:w-full py-[2em] z-2">
             <h1 className="text-slate-700 text-xl font-bold my-4">Manifesto</h1>
             <AnimatedElement staggerEl="span" config={{
                 from: {
@@ -38,4 +38,4 @@ const Manifesto = () => {
     </section>
 }
 
-export default Manifesto;
+export default TestPage;

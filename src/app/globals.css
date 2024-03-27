@@ -20,6 +20,10 @@ body {
   
 }
 
+.pin-spacer{
+  flex-basis: auto !important;
+}
+
 #home-page{}
 
 @layer utilities {
