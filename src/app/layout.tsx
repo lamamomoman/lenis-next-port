@@ -4,6 +4,7 @@ import { Imprima } from "next/font/google";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import Head from "next/head";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,6 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="preload"
+          href={'https://images.unsplash.com/photo-1638184984605-af1f05249a56?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
+          as="image"
+        />
+      </Head>
       <body className={rale.className + ' antialiased'} >
         {children}
         <SpeedInsights />

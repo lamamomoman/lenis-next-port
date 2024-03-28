@@ -16,15 +16,17 @@
   }
 }
 
-body {
-  
+img{
+  max-width: none !important;
 }
 
-.pin-spacer{
+body {}
+
+.pin-spacer {
   flex-basis: auto !important;
 }
 
-#home-page{}
+#home-page {}
 
 @layer utilities {
   .text-balance {

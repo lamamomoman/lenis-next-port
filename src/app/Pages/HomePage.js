@@ -29,7 +29,7 @@ const HomePage = () => {
 
     return <section ref={homeRef} id="home-page" className="relative top-0 overflow-hidden h-screen w-screen border-[20px] max-[500px]:border-[10px] border-white bg-black rounded-[60px] max-[500px]:rounded-[30px] p-[7em] max-[500px]:p-[1em] flex flex-col justify-center">
         <div id="home-page-bg" className="absolute w-screen h-full left-0 top-0 z-0 flex justify-center items-center">
-            <Image priority alt='none' src="/aboutBG.jpg" height={1} width={1} className="w-full"/>
+            <Image priority width={500} height={500} alt='none' src={'https://images.unsplash.com/photo-1638184984605-af1f05249a56?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'} className="w-full max-[500px]:h-full max-[500px]:w-auto"/>
         </div>
         <div className="w-full" id="home-heading">
             <AnimatedElement staggerEl="#letter-cover" config={{
