@@ -10,22 +10,14 @@ const About = () => {
 
     useEffect(() => {
 
-        st.create({
-            trigger: bodyRef.current.querySelector(`#about-page #curly`),
-            pin: true,
-            endTrigger: bodyRef.current.querySelector('#test-page'),
-            start: 'top top',
-            end: 'top bottom',
-            pinSpacing: false,
-            scrub: 10,
-        });
+        const mobile = matchMedia('(max-width:500px').matches;
 
         st.create({
             trigger: bodyRef.current.querySelector('#about-page #curly-heading'),
             pin: true,
-            endTrigger: bodyRef.current.querySelector('#about-page'),
+            endTrigger: bodyRef.current.querySelector('#test-content'),
             start: 'top top',
-            end: 'bottom center',
+            end: 'top bottom ',
             pinSpacing: false,
             scrub: 10,
         });
@@ -98,14 +90,15 @@ const AboutCard = ({ id, index, heading, content, src }) => {
     useEffect(() => {
 
         const startPos = bodyRef.current.querySelector('#curly-heading').offsetHeight;
+        const mobile = matchMedia('(max-width: 500px').matches;
 
         st.create({
             trigger: bodyRef.current.querySelector(`#about-page #${id}`),
             pin: true,
-            endTrigger: bodyRef.current.querySelector('#about-page'),
+            endTrigger: bodyRef.current.querySelector('#test-content'),
             start:`top ${startPos+(index * 15)}`,
             anticipatePin: 1 ,
-            end: 'bottom center',
+            end: 'top bottom',
             pinSpacing: false,
         })
     }, [id]);
@@ -119,12 +112,12 @@ const AboutCard = ({ id, index, heading, content, src }) => {
             start: 'center center',
             end: 'bottom bottom',
         }
-    }} id={id} className="h-[40vh] max-[500px]:h-[40vh] overflow-hidden backdrop-blur-sm bg-white/80 rounded-3xl box-border shadow-2xl">
+    }} id={id} className="h-[40vh] overflow-hidden backdrop-blur-sm bg-white/80 rounded-3xl box-border shadow-2xl">
         <div id="about-content" className="relative flex h-full flex-row max-[500px]:flex-col overflow-hidden">
             <div id="about-content-image" className="flex flex-1 shadow-[10px_0_20px_1px] shadow-black/30 items-center justify-center overflow-hidden max-[500px]:relative max-[500px]:h-[100%] top-0 left-0">
-                <Image loading="lazy" alt='alt' width={500} height={500} className="h-full w-auto max-[500px]:w-screen max-w-[100vw]" src={src} />
+                <Image loading="lazy" alt='alt' width={500} height={500} className="h-full w-auto max-[500px]:w-full max-[500px]:h-auto max-w-[100vw]" src={src} />
             </div>
-            <div id="about-content-left" className="flex-col flex-1 flex items-start p-10 max-[500px]:p-5 justify-center">
+            <div id="about-content-left" className="flex-col flex-1 flex items-start p-10 max-[500px]:p-10 justify-center">
                 <AnimatedElement className="mb-5" staggerEl="span" config={{
                     to: {
                         transform: 'translate(0%, 0%)',
