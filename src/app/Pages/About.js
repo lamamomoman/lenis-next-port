@@ -114,10 +114,10 @@ const AboutCard = ({ id, index, heading, content, src }) => {
         }
     }} id={id} className="h-[40vh] overflow-hidden backdrop-blur-sm bg-white/80 rounded-3xl box-border shadow-2xl">
         <div id="about-content" className="relative flex h-full flex-row max-[500px]:flex-col overflow-hidden">
-            <div id="about-content-image" className="flex flex-1 shadow-[10px_0_20px_1px] shadow-black/30 items-center justify-center overflow-hidden max-[500px]:relative max-[500px]:h-[100%] top-0 left-0">
-                <Image loading="lazy" alt='alt' width={500} height={500} className="h-full w-auto max-[500px]:w-full max-[500px]:h-auto max-w-[100vw]" src={src} />
+            <div id="about-content-image" className="flex flex-1 shadow-[10px_0_20px_1px] shadow-black/30 items-center justify-center overflow-hidden max-[500px]:absolute max-[500px]:h-[100%] top-0 left-0">
+                <Image loading="lazy" alt='alt' width={500} height={500} className="h-full w-auto max-[500px]:w-auto max-[500px]:h-full max-w-[100vw]" src={src} />
             </div>
-            <div id="about-content-left" className="flex-col flex-1 flex items-start p-10 max-[500px]:p-10 justify-center">
+            <div id="about-content-left" className="flex-col  max-[500px]:backdrop-blur-sm flex-1 flex items-start p-10 max-[500px]:p-10 justify-center">
                 <AnimatedElement className="mb-5" staggerEl="span" config={{
                     to: {
                         transform: 'translate(0%, 0%)',
@@ -132,10 +132,10 @@ const AboutCard = ({ id, index, heading, content, src }) => {
                     }
                 }}>
                     <WordSplit>
-                        <h1 words={false} splitStyle='overflow-hidden flex items-center justify-center relative' className="relative opacity-1 translate-y-[100%] tracking-normal leading-none font-semibold text-black text-[3vw] max-[500px]:text-center max-[500px]:text-[6vw]">{heading}</h1>
+                        <h1 words={false} splitStyle='overflow-hidden flex items-center justify-center relative' className="relative opacity-1 translate-y-[100%] tracking-normal leading-none font-semibold text-black text-[3vw] max-[500px]:text-white max-[500px]:text-center max-[500px]:text-[6vw]">{heading}</h1>
                     </WordSplit>
                 </AnimatedElement>
-                <p className="text-black text-md max-[500px]:text-sm">{content}</p>
+                <p className="z-2 text-black text-md max-[500px]:text-sm max-[500px]:text-white">{content}</p>
             </div>
         </div>
     </AnimatedElement>
