@@ -70,7 +70,7 @@ const IntroPage = () => {
                                 end: 'bottom top'
                             }
                         }}>
-                            <Image  alt='' sizes="100vw" width={50} height={50} priority src='/me.JPG' className="relative flex-auto w-full h-full" />
+                            <Image  alt='' sizes="100vw" width={50} height={50} loading="lazy" src='/me.JPG' className="relative flex-auto w-full h-full" />
                         </AnimatedElement>
                     </div>
                     <div id="intro-bottom-heading" className="flex-[2] w-full max-[500px]:flex-1">
